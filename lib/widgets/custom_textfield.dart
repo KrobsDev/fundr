@@ -6,12 +6,14 @@ class CustomTextFIeld extends StatelessWidget {
   final bool isFocused;
   final Icon? icon;
   final String hintText;
+  final bool? obscureText;
 
   const CustomTextFIeld({
     super.key,
     required this.focusNode,
     required this.hintText,
     this.isFocused = false,
+    this.obscureText = false,
     this.icon,
   });
 
@@ -19,6 +21,7 @@ class CustomTextFIeld extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       focusNode: focusNode,
+      obscureText: obscureText!,
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.all(15),
         hintText: hintText,

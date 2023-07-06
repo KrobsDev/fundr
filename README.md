@@ -8,6 +8,8 @@ A charity donations social media application to help the less fortunate
 ### New Features
 - Added dot indicators to enhance the onboarding process.
 - Introduced a circular progress animation during onboarding.
+- Added login feature
+- Added sign up / create account feature
 
 ### Enhancements
 

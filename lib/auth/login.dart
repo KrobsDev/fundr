@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fundr/auth/signup.dart';
 import 'package:fundr/constants.dart';
 import 'package:fundr/widgets/custom_button.dart';
 import 'package:fundr/widgets/custom_text.dart';
@@ -43,6 +44,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
+        reverse: true,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -132,6 +134,7 @@ class _LoginState extends State<Login> {
                     isFocused: _passwordFocusNode.hasFocus,
                     hintText: 'Password',
                     icon: const Icon(Icons.lock_outlined),
+                    obscureText: true,
                   ),
                   Align(
                     alignment: Alignment.centerRight,
@@ -241,14 +244,14 @@ class _LoginState extends State<Login> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 25,
                   ),
                   Flexible(
                     child: RichText(
                       text: TextSpan(
                         children: [
-                          TextSpan(
+                          const TextSpan(
                             text: 'Don\'t have an account?',
                             style: TextStyle(
                               color: kTextColor,
@@ -256,9 +259,13 @@ class _LoginState extends State<Login> {
                             ),
                           ),
                           TextSpan(
-                            recognizer: TapGestureRecognizer()..onTap = () {},
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => const SignUp()));
+                              },
                             text: ' Sign up',
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: kPrimaryColor,
                             ),
                           ),
