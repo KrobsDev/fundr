@@ -5,6 +5,7 @@ class CustomText extends StatelessWidget {
   final String text;
   final bool? isTitle;
   final bool? isSmall;
+  final bool? isMedium;
   final bool? isBold;
   final Color? color;
   const CustomText({
@@ -12,6 +13,7 @@ class CustomText extends StatelessWidget {
     required this.text,
     this.isTitle = false,
     this.isSmall = false,
+    this.isMedium = false,
     this.isBold = false,
     this.color = kTextColor,
   });
@@ -27,7 +29,11 @@ class CustomText extends StatelessWidget {
             : isSmall!
                 ? kSmallFontSize
                 : kDefaultFontSize,
-        fontWeight: isBold! ? kBoldFontWeight : kDefaultFontWeight,
+        fontWeight: isBold!
+            ? kBoldFontWeight
+            : isMedium!
+                ? kMediumFontWeight
+                : kDefaultFontWeight,
       ),
     );
   }

@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fundr/constants.dart';
+import 'package:fundr/widgets/custom_button.dart';
 import 'package:fundr/widgets/custom_text.dart';
 import 'package:fundr/widgets/custom_textfield.dart';
 
@@ -42,6 +44,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Container(
               height: 400,
@@ -111,12 +114,15 @@ class _LoginState extends State<Login> {
             Padding(
               padding: const EdgeInsets.all(kDefaultPadding),
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   CustomTextFIeld(
                     focusNode: _emailFocusNode,
                     isFocused: _emailFocusNode.hasFocus,
                     hintText: 'Email',
-                    icon: const Icon(Icons.mail_outline_rounded),
+                    icon: const Icon(
+                      Icons.mail_outline_rounded,
+                    ),
                   ),
                   const SizedBox(
                     height: 20,
@@ -127,6 +133,139 @@ class _LoginState extends State<Login> {
                     hintText: 'Password',
                     icon: const Icon(Icons.lock_outlined),
                   ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () {},
+                      style: const ButtonStyle(
+                        padding: MaterialStatePropertyAll(EdgeInsets.zero),
+                        shape:
+                            MaterialStatePropertyAll(RoundedRectangleBorder()),
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      ),
+                      child: const CustomText(
+                        text: 'Forgot password?',
+                        isSmall: true,
+                        isMedium: true,
+                        color: kPrimaryColor,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CustomButton(
+                    onPressed: () {},
+                    text: 'Sign in',
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: Divider(
+                          color: kGreyColor.withOpacity(0.2),
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        child: CustomText(
+                          text: 'or continue with',
+                          isSmall: true,
+                        ),
+                      ),
+                      Expanded(
+                        child: Divider(
+                          color: kGreyColor.withOpacity(0.2),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: kDefaultPadding / 2,
+                              vertical: kDefaultPadding / 1.5),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color: kGreyColor.withOpacity(0.075)),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: Row(
+                            children: [
+                              SvgPicture.asset('assets/icons/google.svg'),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              const CustomText(
+                                text: 'Sign in with Google',
+                                isSmall: true,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: kDefaultPadding / 2,
+                              vertical: kDefaultPadding / 1.5),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color: kGreyColor.withOpacity(0.075)),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: Row(
+                            children: [
+                              SvgPicture.asset('assets/icons/apple.svg'),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              const CustomText(
+                                text: 'Sign in with Google',
+                                isSmall: true,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  Flexible(
+                    child: RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'Don\'t have an account?',
+                            style: TextStyle(
+                              color: kTextColor,
+                              fontWeight: kDefaultFontWeight,
+                            ),
+                          ),
+                          TextSpan(
+                            recognizer: TapGestureRecognizer()..onTap = () {},
+                            text: ' Sign up',
+                            style: TextStyle(
+                              color: kPrimaryColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),

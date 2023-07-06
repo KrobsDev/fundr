@@ -23,3 +23,4 @@ const double kDefaultPadding = 20.0;
 // font weights
 const FontWeight kBoldFontWeight = FontWeight.bold;
 const FontWeight kDefaultFontWeight = FontWeight.w300;
+const FontWeight kMediumFontWeight = FontWeight.w500;
