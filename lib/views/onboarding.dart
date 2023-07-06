@@ -2,7 +2,6 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fundr/constants.dart';
-import 'package:fundr/widgets/dot_indicator.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({super.key});
@@ -62,28 +61,6 @@ class _OnboardingState extends State<Onboarding>
     _animationController.animateTo(sweepAngle);
   }
 
-  // void _incrementSweepAngle() {
-  //   final double newProgress = _currentSweepAngle + increment;
-  //   if (newProgress <= 1.0) {
-  //     _animationController.animateTo(newProgress);
-  //   }
-  // }
-
-  // void _jumpToSweepAngle() {
-  //   final double newProgress = _currentSweepAngle * increment;
-  //   if (newProgress <= 1.0) {
-  //     _animationController.animateTo(newProgress);
-  //   }
-  //   print(newProgress);
-  // }
-
-  // void _decrementSweepAngle() {
-  //   final double newProgress = _currentSweepAngle - increment;
-  //   if (newProgress <= 1.0) {
-  //     _animationController.animateTo(newProgress);
-  //   }
-  // }
-
   @override
   void dispose() {
     // _animationTimer?.cancel();
@@ -102,11 +79,11 @@ class _OnboardingState extends State<Onboarding>
                 _currentPage = value.toDouble();
               });
 
-              if (_currentPage <= pageController.page!) {
-                animateToSweep(_currentSweepAngle - increment);
-                return;
-              }
-              animateToSweep(_currentSweepAngle + increment);
+              // if (_currentPage <= pageController.page!) {
+              //   animateToSweep(value * increment);
+              //   return;
+              // }
+              animateToSweep(value * increment);
             },
             controller: pageController,
             itemCount: 5,
@@ -204,7 +181,6 @@ class _OnboardingState extends State<Onboarding>
                   dotsCount: 5,
                   position: _currentPage,
                   onTap: (position) {
-                    animateToSweep(position * increment);
                     pageController.animateToPage(
                       position.toInt(),
                       duration: const Duration(milliseconds: 200),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fundr/views/homepage.dart';
 import 'package:fundr/views/onboarding.dart';
 
 void main() {
