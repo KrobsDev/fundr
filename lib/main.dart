@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fundr/auth/login.dart';
 import 'package:fundr/views/onboarding.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0XFF004E89)),
         useMaterial3: true,
       ),
-      home: const Onboarding(),
+      home: const Login(),
     );
   }
 }

@@ -1,7 +1,11 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fundr/auth/login.dart';
 import 'package:fundr/constants.dart';
+import 'package:fundr/models/onboarding_model.dart';
+import 'package:fundr/widgets/custom_button.dart';
+import 'package:fundr/widgets/custom_text.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({super.key});
@@ -21,12 +25,11 @@ class _OnboardingState extends State<Onboarding>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     // initialise the animation controller
-    _animationController =
-        AnimationController(duration: const Duration(seconds: 1), vsync: this);
+    _animationController = AnimationController(
+        duration: const Duration(milliseconds: 800), vsync: this);
 
     _animation = Tween<double>(
       begin: 0,
@@ -42,9 +45,13 @@ class _OnboardingState extends State<Onboarding>
   void _goToNextScreen() {
     if (pageController.page == 4) {
       // navigate to the next page (login)
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => const Login(),
+        ),
+      );
       return;
     }
-    // print(_currentPage);
 
     setState(() {
       _currentPage++;
@@ -79,22 +86,18 @@ class _OnboardingState extends State<Onboarding>
                 _currentPage = value.toDouble();
               });
 
-              // if (_currentPage <= pageController.page!) {
-              //   animateToSweep(value * increment);
-              //   return;
-              // }
               animateToSweep(value * increment);
             },
             controller: pageController,
-            itemCount: 5,
+            itemCount: content.length,
             itemBuilder: (context, int index) {
               return Stack(
                 children: [
                   // background image
                   Container(
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage('assets/images/onboarding_1.jpg'),
+                        image: AssetImage(content[index].image),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -110,12 +113,12 @@ class _OnboardingState extends State<Onboarding>
                         stops: [
                           0.0,
                           0.25,
-                          0.7,
+                          0.8,
                         ],
                         colors: [
-                          Color(0xFF212121),
+                          Color(0xFF000000),
                           Color.fromRGBO(0, 0, 0, 0.25),
-                          Color(0xFF212121),
+                          Color(0xFF000000),
                         ],
                       ),
                     ),
@@ -130,16 +133,44 @@ class _OnboardingState extends State<Onboarding>
                       width: 30,
                     ),
                   ),
-
-                  // logo
                 ],
               );
             },
           ),
+          Positioned.fill(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: kDefaultPadding,
+                vertical: kDefaultPadding * 5,
+              ),
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    CustomText(
+                      text: content[_currentPage.toInt()].title,
+                      isTitle: true,
+                      isBold: true,
+                      color: kWhiteColor,
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    CustomText(
+                      text: content[_currentPage.toInt()].text,
+                      color: kWhiteColor,
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
           Stack(
             children: [
               Positioned(
-                bottom: 50,
+                bottom: 18,
                 right: 20,
                 child: SizedBox(
                   width: 75,
@@ -155,7 +186,7 @@ class _OnboardingState extends State<Onboarding>
                 ),
               ),
               Positioned(
-                bottom: 52,
+                bottom: 20,
                 right: 22,
                 child: InkWell(
                   onTap: () {
@@ -168,14 +199,17 @@ class _OnboardingState extends State<Onboarding>
                     margin: const EdgeInsets.all(3),
                     decoration: BoxDecoration(
                       color: kPrimaryColor,
-                      border: Border.all(),
                       borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: const Icon(
+                      Icons.arrow_forward,
+                      color: kWhiteColor,
                     ),
                   ),
                 ),
               ),
               Positioned(
-                bottom: 80,
+                bottom: 45,
                 left: 20,
                 child: DotsIndicator(
                   dotsCount: 5,
@@ -187,9 +221,10 @@ class _OnboardingState extends State<Onboarding>
                       curve: Curves.ease,
                     );
                   },
-                  decorator: const DotsDecorator(
+                  decorator: DotsDecorator(
                     activeColor: kPrimaryColor,
-                    spacing: EdgeInsets.symmetric(horizontal: 3),
+                    spacing: const EdgeInsets.symmetric(horizontal: 3),
+                    color: kWhiteColor.withOpacity(0.1),
                   ),
                 ),
               ),
