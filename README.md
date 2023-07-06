@@ -13,3 +13,4 @@ A charity donations social media application to help the less fortunate
 
 
 ### Bug Fixes
+- Fixed the circular progress animation issue
