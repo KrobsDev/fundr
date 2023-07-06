@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:fundr/auth/login.dart';
 import 'package:fundr/constants.dart';
 import 'package:fundr/models/onboarding_model.dart';
-import 'package:fundr/widgets/custom_button.dart';
 import 'package:fundr/widgets/custom_text.dart';
 
 class Onboarding extends StatefulWidget {
@@ -17,7 +16,7 @@ class Onboarding extends StatefulWidget {
 class _OnboardingState extends State<Onboarding>
     with SingleTickerProviderStateMixin {
   double _currentPage = 0;
-  double _currentSweepAngle = 0;
+  double currentSweepAngle = 0;
   final double increment = 0.25; // Increment of 25%
   late Animation<double> _animation;
   late AnimationController _animationController;
@@ -37,7 +36,7 @@ class _OnboardingState extends State<Onboarding>
     ).animate(_animationController)
       ..addListener(() {
         setState(() {
-          _currentSweepAngle = _animation.value;
+          currentSweepAngle = _animation.value;
         });
       });
   }
