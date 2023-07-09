@@ -8,6 +8,8 @@ class CustomText extends StatelessWidget {
   final bool? isMedium;
   final bool? isBold;
   final Color? color;
+  final FontWeight? fontWeight;
+
   const CustomText({
     super.key,
     required this.text,
@@ -16,6 +18,7 @@ class CustomText extends StatelessWidget {
     this.isMedium = false,
     this.isBold = false,
     this.color = kTextColor,
+    this.fontWeight = kDefaultFontWeight,
   });
 
   @override
@@ -28,12 +31,11 @@ class CustomText extends StatelessWidget {
             ? kLargeFontSize
             : isSmall!
                 ? kSmallFontSize
-                : kDefaultFontSize,
-        fontWeight: isBold!
-            ? kBoldFontWeight
-            : isMedium!
-                ? kMediumFontWeight
-                : kDefaultFontWeight,
+                : isMedium!
+                    ? kMediumFontSize
+                    : kDefaultFontSize,
+        fontWeight:
+            isBold! ? kBoldFontWeight : fontWeight ?? kDefaultFontWeight,
       ),
     );
   }
