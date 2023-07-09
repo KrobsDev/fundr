@@ -26,6 +26,7 @@ class HomePage extends StatelessWidget {
               children: [
                 CustomText(
                   text: 'Cristofer Torff',
+                  isMedium: true,
                 ),
                 Row(
                   children: [

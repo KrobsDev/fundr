@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fundr/auth/signup.dart';
 import 'package:fundr/constants.dart';
-import 'package:fundr/views/homepage.dart';
+import 'package:fundr/views/mainScreens/homepage.dart';
 import 'package:fundr/widgets/custom_button.dart';
 import 'package:fundr/widgets/custom_text.dart';
 import 'package:fundr/widgets/custom_textfield.dart';

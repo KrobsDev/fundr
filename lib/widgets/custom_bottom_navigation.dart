@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:fundr/views/homepage.dart';
+import 'package:fundr/views/mainScreens/echo_page.dart';
+import 'package:fundr/views/mainScreens/homepage.dart';
+import 'package:fundr/views/mainScreens/messages_page.dart';
+import 'package:fundr/views/mainScreens/notifications_page.dart';
+import 'package:fundr/views/mainScreens/search_page.dart';
 
 class CustomBottomNavigation extends StatefulWidget {
   const CustomBottomNavigation({super.key});
@@ -10,12 +14,12 @@ class CustomBottomNavigation extends StatefulWidget {
 }
 
 class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
-  final List<Widget> screens = [
+  final List<Widget> screens = const [
     HomePage(),
-    HomePage(),
-    HomePage(),
-    HomePage(),
-    HomePage(),
+    SearchPage(),
+    EchoPage(),
+    NotificationPage(),
+    MessagesPage(),
   ];
 
   int _currentPage = 0;

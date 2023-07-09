@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fundr/constants.dart';
-import 'package:fundr/views/homepage.dart';
 import 'package:fundr/widgets/custom_bottom_navigation.dart';
 
 void main() {
