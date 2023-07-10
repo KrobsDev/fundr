@@ -3,6 +3,18 @@ A charity donations social media application to help the less fortunate
 
 # Change Log
 
+## [0.0.0] - 10-07-2023
+
+### New Features
+- Added support for images in the posts functionality (only frontend)
+- Added a floating action button for creating a post
+- Added a post item widget to render posts
+
+### Fixes
+- Modified the post item to handle user interactions
+
+
+
 ## [0.0.0] - 09-07-2023
 
 ### New Features
@@ -10,7 +22,6 @@ A charity donations social media application to help the less fortunate
 - Created the list style for the post items
 - Added actions to the list tiles
 
-### Bug Fixes
 
 
 ## [0.0.0] - 06-07-2023
