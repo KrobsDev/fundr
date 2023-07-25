@@ -4,6 +4,8 @@ import 'package:fundr/widgets/custom_appbar.dart';
 import 'package:fundr/widgets/custom_text.dart';
 import 'package:fundr/widgets/user_avatar.dart';
 
+import '../../widgets/notification_tile.dart';
+
 class NotificationPage extends StatelessWidget {
   const NotificationPage({super.key});
 
@@ -22,41 +24,11 @@ class NotificationPage extends StatelessWidget {
           padding: const EdgeInsets.only(top: 10),
           shrinkWrap: true,
           itemBuilder: (context, index) {
-            return const ListTile(
-              leading: Stack(
-                children: [
-                  UserAvatar(
-                    image: 'assets/images/onboarding_1.jpg',
-                    radius: 25,
-                  ),
-                  Positioned(
-                    child: Icon(
-                      Icons.circle,
-                      color: kPrimaryColor,
-                      size: 13,
-                    ),
-                  )
-                ],
-              ),
-              title: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CustomText(
-                    text: 'Martin Channing',
-                    fontWeight: kMediumFontWeight,
-                    isMedium: true,
-                  ),
-                  CustomText(
-                    text: '2 min ago',
-                    isSmall: true,
-                    color: kGreyColor,
-                  )
-                ],
-              ),
-              subtitle: CustomText(
-                text: 'Mentioned you in a post by CharCharity',
-                isMedium: true,
-              ),
+            return NotificationTile(
+              image: 'assets/images/onboarding_1.jpg',
+              name: 'Martin Channing',
+              message: 'Mentioned you in a post by CharCharity',
+              time: '2 min ago',
             );
           },
         ));

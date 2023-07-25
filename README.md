@@ -14,7 +14,7 @@ A charity donations social media application to help the less fortunate
 - Added the tiles for the echo
 - Added the Echo page
 - Added notification page
-- Created a tile to represent each notification
+- Created a tile to represent each notification (NotificationTile)
 
 ### Fixed
 
