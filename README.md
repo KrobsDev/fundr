@@ -14,7 +14,7 @@ A charity donations social media application to help the less fortunate
 - Added the tiles for the echo
 - Added the Echo page
 - Added notification page
-- Created a tile to represent each notification (MessageTile)
+- Created a tile to represent each notification (CustomTile)
 - Added messages page
 
 ### Fixed
@@ -23,6 +23,7 @@ A charity donations social media application to help the less fortunate
 - Added search icon to the search bar
 - Configured search bar to remove icon when focused
 - Modified the message tile to be reused as a notification and a message tile
+- Renamed the message tile
 
 ## [0.0.3] - 24-07-2023
 

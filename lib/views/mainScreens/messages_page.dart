@@ -22,11 +22,11 @@ class MessagesPage extends StatelessWidget {
           padding: const EdgeInsets.only(top: 10),
           shrinkWrap: true,
           itemBuilder: (context, index) {
-            return MessageTile(
+            return CustomTile(
               image: 'assets/images/onboarding_1.jpg',
               name: 'Martin Channing',
               message: 'Mentioned you in a post by CharCharity',
-              time: '2 min ago',
+              time: '1:35pm',
               isMessage: true,
             );
           },

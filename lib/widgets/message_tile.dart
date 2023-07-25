@@ -3,14 +3,14 @@ import 'package:fundr/constants.dart';
 import 'package:fundr/widgets/custom_text.dart';
 import 'package:fundr/widgets/user_avatar.dart';
 
-class MessageTile extends StatelessWidget {
+class CustomTile extends StatelessWidget {
   final String image;
   final String name;
   final String message;
   final String time;
   final bool? isMessage;
 
-  const MessageTile({
+  const CustomTile({
     super.key,
     required this.image,
     required this.name,

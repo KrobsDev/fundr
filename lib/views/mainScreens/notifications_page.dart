@@ -23,7 +23,7 @@ class NotificationPage extends StatelessWidget {
           padding: const EdgeInsets.only(top: 10),
           shrinkWrap: true,
           itemBuilder: (context, index) {
-            return const MessageTile(
+            return const CustomTile(
               image: 'assets/images/onboarding_1.jpg',
               name: 'Martin Channing',
               message: 'Mentioned you in a post by CharCharity',
