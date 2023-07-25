@@ -3,18 +3,20 @@ import 'package:fundr/constants.dart';
 import 'package:fundr/widgets/custom_text.dart';
 import 'package:fundr/widgets/user_avatar.dart';
 
-class NotificationTile extends StatelessWidget {
+class MessageTile extends StatelessWidget {
   final String image;
   final String name;
   final String message;
   final String time;
+  final bool? isMessage;
 
-  const NotificationTile({
+  const MessageTile({
     super.key,
     required this.image,
     required this.name,
     required this.message,
     required this.time,
+    this.isMessage = false,
   });
 
   @override
@@ -50,9 +52,36 @@ class NotificationTile extends StatelessWidget {
           )
         ],
       ),
-      subtitle: CustomText(
-        text: message,
-        isMedium: true,
+      subtitle: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          SizedBox(
+            width: isMessage! ? 250 : null,
+            child: CustomText(
+              text: message,
+              isMedium: true,
+              maxLines: isMessage! ? 1 : null,
+              isMessage: isMessage,
+            ),
+          ),
+          isMessage!
+              ? Container(
+                  width: 20,
+                  height: 20,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: kPrimaryColor,
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  child: CustomText(
+                    text: '2',
+                    fontWeight: kMediumFontWeight,
+                    isSmall: true,
+                    color: kWhiteColor,
+                  ),
+                )
+              : SizedBox(),
+        ],
       ),
     );
   }
