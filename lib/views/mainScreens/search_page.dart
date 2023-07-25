@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fundr/constants.dart';
+import 'package:fundr/models/post_model.dart';
 import 'package:fundr/widgets/custom_appbar.dart';
 import 'package:fundr/widgets/custom_text.dart';
 import 'package:fundr/widgets/custom_textfield.dart';
 import 'package:fundr/widgets/heading_item.dart';
+import 'package:fundr/widgets/post_item.dart';
 import 'package:fundr/widgets/trend_item.dart';
 
 class SearchPage extends StatefulWidget {
@@ -92,31 +94,86 @@ class _SearchPageState extends State<SearchPage> {
         ],
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(kDefaultPadding),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Heading(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: kDefaultPadding, vertical: 10),
+              child: Heading(
                 primaryText: 'Trending Charities',
                 secondaryText: 'Find out what is trending around you',
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              Flexible(
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: kDefaultPadding,
+                ),
                 child: ListView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 50,
+                  itemCount: 20,
                   itemBuilder: (context, index) {
                     return const TrendItem();
                   },
                 ),
               ),
-            ],
-          ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(kDefaultPadding),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const CustomText(
+                    text: 'Show more',
+                    isMedium: true,
+                    color: kPrimaryColor,
+                  ),
+                  Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    size: 20,
+                    color: kGreyColor.withOpacity(0.2),
+                  )
+                ],
+              ),
+            ),
+            Divider(
+              color: kGreyColor.withOpacity(0.05),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+              child: const Heading(
+                primaryText: 'Charities you follow',
+              ),
+            ),
+            Flexible(
+              child: ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: posts.length,
+                itemBuilder: (context, index) {
+                  return PostItem(
+                    userName: posts[index].userName,
+                    handle: posts[index].handle,
+                    time: posts[index].time,
+                    content: posts[index].content,
+                    isImage: posts[index].isImage,
+                  );
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );

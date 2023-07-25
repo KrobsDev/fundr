@@ -3,11 +3,11 @@ import 'package:fundr/widgets/custom_text.dart';
 
 class Heading extends StatelessWidget {
   final String primaryText;
-  final String secondaryText;
+  final String? secondaryText;
   const Heading({
     super.key,
     required this.primaryText,
-    required this.secondaryText,
+    this.secondaryText,
   });
 
   @override
@@ -21,7 +21,7 @@ class Heading extends StatelessWidget {
           isBold: true,
         ),
         CustomText(
-          text: secondaryText,
+          text: secondaryText ?? '',
           isSmall: true,
         ),
       ],
