@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:fundr/constants.dart';
-import 'package:fundr/widgets/custom_textfield.dart';
 import 'package:fundr/widgets/user_avatar.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {

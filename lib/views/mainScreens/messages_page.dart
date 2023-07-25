@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:fundr/constants.dart';
 import 'package:fundr/widgets/custom_appbar.dart';
 import 'package:fundr/widgets/custom_text.dart';
-import 'package:fundr/widgets/user_avatar.dart';
-
 import '../../widgets/message_tile.dart';
 
 class MessagesPage extends StatelessWidget {
