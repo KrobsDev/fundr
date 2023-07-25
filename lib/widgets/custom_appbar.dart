@@ -5,13 +5,13 @@ import 'package:fundr/widgets/custom_textfield.dart';
 import 'package:fundr/widgets/user_avatar.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  // final bool? showLogo;
+  final bool? showSetting;
   final List<Widget>? actions;
   final Widget title;
   const CustomAppBar({
     super.key,
     required this.title,
-    // this.showLogo = false,
+    this.showSetting = false,
     this.actions,
   });
 
@@ -27,7 +27,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       title: title,
-      actions: actions,
+      actions: [
+        showSetting!
+            ? Padding(
+                padding: const EdgeInsets.only(right: kDefaultPadding / 2),
+                child: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.settings),
+                ),
+              )
+            : SizedBox(),
+      ],
     );
   }
 

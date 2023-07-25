@@ -11,6 +11,10 @@ A charity donations social media application to help the less fortunate
 - Added the search page
 - Added tiles that represent the different trending topics/items
 - Created a heading component to organize the heading styles across the app
+- Added the tiles for the echo
+- Added the Echo page
+- Added notification page
+- Created a tile to represent each notification
 
 ### Fixed
 

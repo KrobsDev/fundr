@@ -43,6 +43,7 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
+        showSetting: true,
         title: SizedBox(
           height: 30,
           // width: double.infinity,
@@ -83,15 +84,6 @@ class _SearchPageState extends State<SearchPage> {
             ],
           ),
         ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: kDefaultPadding / 2),
-            child: IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.settings),
-            ),
-          ),
-        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -151,9 +143,9 @@ class _SearchPageState extends State<SearchPage> {
             const SizedBox(
               height: 20,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-              child: const Heading(
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
+              child: Heading(
                 primaryText: 'Charities you follow',
               ),
             ),
