@@ -11,8 +11,11 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
-        showLogo: true,
+      appBar: CustomAppBar(
+        title: SvgPicture.asset(
+          'assets/images/Logo.svg',
+          width: 30,
+        ),
       ),
       body: ListView.builder(
         itemCount: posts.length,

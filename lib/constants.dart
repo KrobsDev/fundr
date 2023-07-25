@@ -15,7 +15,7 @@ const Color kWhiteColor = Color(0xFFF5F5F7);
 const double kSmallFontSize = 12.0;
 const double kMediumFontSize = 14.0;
 const double kDefaultFontSize = 16.0;
-const double kLargeFontSize = 25.0;
+const double kLargeFontSize = 20.0;
 
 // padding
 const double kDefaultPadding = 20.0;

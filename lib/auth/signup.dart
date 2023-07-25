@@ -126,9 +126,9 @@ class _SignUpState extends State<SignUp> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  CustomTextFIeld(
+                  CustomTextField(
                     focusNode: _fNameFocusNode,
-                    isFocused: _fNameFocusNode.hasFocus,
+                    // isFocused: _fNameFocusNode.hasFocus,
                     hintText: 'First name',
                     icon: const Icon(
                       Icons.face_5_rounded,
@@ -137,18 +137,18 @@ class _SignUpState extends State<SignUp> {
                   const SizedBox(
                     height: 20,
                   ),
-                  CustomTextFIeld(
+                  CustomTextField(
                     focusNode: _lNameFocusNode,
-                    isFocused: _lNameFocusNode.hasFocus,
+                    // isFocused: _lNameFocusNode.hasFocus,
                     hintText: 'Last name',
                     icon: const Icon(Icons.face_5_rounded),
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  CustomTextFIeld(
+                  CustomTextField(
                     focusNode: _emailFocusNode,
-                    isFocused: _emailFocusNode.hasFocus,
+                    // isFocused: _emailFocusNode.hasFocus,
                     hintText: 'Email',
                     icon: const Icon(
                       Icons.mail_outline_rounded,
@@ -157,9 +157,9 @@ class _SignUpState extends State<SignUp> {
                   const SizedBox(
                     height: 20,
                   ),
-                  CustomTextFIeld(
+                  CustomTextField(
                     focusNode: _passwordFocusNode,
-                    isFocused: _passwordFocusNode.hasFocus,
+                    // isFocused: _passwordFocusNode.hasFocus,
                     hintText: 'Password',
                     icon: const Icon(Icons.lock_outlined),
                     obscureText: true,

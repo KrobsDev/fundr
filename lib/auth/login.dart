@@ -119,9 +119,9 @@ class _LoginState extends State<Login> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  CustomTextFIeld(
+                  CustomTextField(
                     focusNode: _emailFocusNode,
-                    isFocused: _emailFocusNode.hasFocus,
+                    // isFocused: _emailFocusNode.hasFocus,
                     hintText: 'Email',
                     icon: const Icon(
                       Icons.mail_outline_rounded,
@@ -130,9 +130,9 @@ class _LoginState extends State<Login> {
                   const SizedBox(
                     height: 20,
                   ),
-                  CustomTextFIeld(
+                  CustomTextField(
                     focusNode: _passwordFocusNode,
-                    isFocused: _passwordFocusNode.hasFocus,
+                    // isFocused: _passwordFocusNode.hasFocus,
                     hintText: 'Password',
                     icon: const Icon(Icons.lock_outlined),
                     obscureText: true,
